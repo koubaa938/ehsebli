@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4ème Technique</title>
+    <head><style>html {
+        filter: invert(100%) hue-rotate(180deg);
+      }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px; /* Adjusted margin bottom */
+    }
+    
+    h2 {
+        margin-top: 20px;
+        color: #555;
+    }
+    
+    label {
+        display: block;
+        margin-top: 10px;
+        color: #777;
+    }
+    
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #17A057;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #213970;
+    }
+    
+    #result {
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .dispense-button-container span {
+        margin-right: 10px; /* Adjust spacing between text and button */
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>4ème Technique</h1>
+        <form id="gradeForm">
+            <!-- Technique -->
+            <h2>Technique</h2>
+            <label for="tpmec">TP mécanique:</label>
+            <input type="number" id="tpmec" step="0.01" min="0" max="20" required>
+            <label for="ctrlmec">Controle mécanique:</label>
+            <input type="number" id="ctrlmec" step="0.01" min="0" max="20" required>
+            <label for="synthmec">Synthèse mécanique:</label>
+            <input type="number" id="synthmec" step="0.01" min="0" max="20" required>
+            <label for="tpelec">TP électrique:</label>
+            <input type="number" id="tpelec" step="0.01" min="0" max="20" required>
+            <label for="ctrlelec">Controle électrique:</label>
+            <input type="number" id="ctrlelec" step="0.01" min="0" max="20" required>
+            <label for="synthelec">Synthèse électrique:</label>
+            <input type="number" id="synthelec" step="0.01" min="0" max="20" required>
+            <!-- Physics -->
+            <h2>Physique</h2>
+            <label for="tpphy">TP Physique:</label>
+            <input type="number" id="tpphy" step="0.01" min="0" max="20" required>
+            <label for="ctrlphy">Controle Physique:</label>
+            <input type="number" id="ctrlphy" step="0.01" min="0" max="20" required>
+            <label for="synthphy">Synthèse Physique:</label>
+            <input type="number" id="synthphy" step="0.01" min="0" max="20" required>
+            <!-- Math -->
+            <h2>Mathématiques</h2>
+            <label for="ctrlmath">Controle Mathématiques:</label>
+            <input type="number" id="ctrlmath" step="0.01" min="0" max="20" required>
+            <label for="synthmath">Synthèse Mathématiques:</label>
+            <input type="number" id="synthmath" step="0.01" min="0" max="20" required>
+            <!-- Arabic -->
+            <h2>Arabe</h2>
+            <label for="syntharabe">Synthèse Arabe:</label>
+            <input type="number" id="syntharabe" step="0.01" min="0" max="20" required>
+            <!-- French -->
+            <h2>Français</h2>
+            <label for="oralfran">Oral Français:</label>
+            <input type="number" id="oralfran" step="0.01" min="0" max="20" required>
+            <label for="ctrlfran">Controle Français:</label>
+            <input type="number" id="ctrlfran" step="0.01" min="0" max="20" required>
+            <label for="synthfran">Synthèse Français:</label>
+            <input type="number" id="synthfran" step="0.01" min="0" max="20" required>
+            <!-- English -->
+            <h2>Anglais</h2>
+            <label for="oralang">Oral Anglais:</label>
+            <input type="number" id="oralang" step="0.01" min="0" max="20" required>
+            <label for="ctrlang">Controle Anglais:</label>
+            <input type="number" id="ctrlang" step="0.01" min="0" max="20" required>
+            <label for="synthang">Synthèse Anglais:</label>
+            <input type="number" id="synthang" step="0.01" min="0" max="20" required>
+            <!-- Philosophy -->
+            <h2>Philosophie</h2>
+            <label for="oralph">Oral Philosophie:</label>
+            <input type="number" id="oralph" step="0.01" min="0" max="20" required>
+            <label for="ctrlph">Controle Philosophie:</label>
+            <input type="number" id="ctrlph" step="0.01" min="0" max="20" required>
+            <label for="synthph">Synthèse Philosophie:</label>
+            <input type="number" id="synthph" step="0.01" min="0" max="20" required>
+            <!-- Computer Science -->
+            <h2>Informatique</h2>
+            <label for="ctrlinfo">Controle Informatique:</label>
+            <input type="number" id="ctrlinfo" step="0.01" min="0" max="20" required>
+            <label for="synthinfo">Synthèse Informatique:</label>
+            <input type="number" id="synthinfo" step="0.01" min="0" max="20" required>
+            <!-- Option -->
+            <h2>Option</h2>
+            <label for="oralop">Oral Option:</label>
+            <input type="number" id="oralop" step="0.01" min="0" max="20" required>
+            <label for="ctrlop">Controle Option:</label>
+            <input type="number" id="ctrlop" step="0.01" min="0" max="20" required>
+            <label for="synthop">Synthèse Option:</label>
+            <input type="number" id="synthop" step="0.01" min="0" max="20" required>
+            <!-- Sport -->
+            <h2>Sport</h2>
+            <label for="ctrlsport">Controle Sport:</label>
+            <input type="number" id="ctrlsport" step="0.01" min="0" max="20" required>
+            <label for="synthsport">Synthèse Sport:</label>
+            <input type="number" id="synthsport" step="0.01" min="0" max="20" required>
+            <!-- Add inputs for other subjects -->
+            <button type="submit">EHSEB</button>
+            <label for="dreictor">Powered By Youssef Koubaa</label>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>document.getElementById("gradeForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        // Get values from form inputs
+        var tpmec = parseFloat(document.getElementById("tpmec").value);
+        var ctrlmec = parseFloat(document.getElementById("ctrlmec").value);
+        var synthmec = parseFloat(document.getElementById("synthmec").value);
+        var tpelec = parseFloat(document.getElementById("tpelec").value);
+        var ctrlelec = parseFloat(document.getElementById("ctrlelec").value);
+        var synthelec = parseFloat(document.getElementById("synthelec").value);
+        var tpphy = parseFloat(document.getElementById("tpphy").value);
+        var ctrlphy = parseFloat(document.getElementById("ctrlphy").value);
+        var synthphy = parseFloat(document.getElementById("synthphy").value);
+        var ctrlmath = parseFloat(document.getElementById("ctrlmath").value);
+        var synthmath = parseFloat(document.getElementById("synthmath").value);
+        var syntharabe = parseFloat(document.getElementById("syntharabe").value);
+        var oralfran = parseFloat(document.getElementById("oralfran").value);
+        var ctrlfran = parseFloat(document.getElementById("ctrlfran").value);
+        var synthfran = parseFloat(document.getElementById("synthfran").value);
+        var oralang = parseFloat(document.getElementById("oralang").value);
+        var ctrlang = parseFloat(document.getElementById("ctrlang").value);
+        var synthang = parseFloat(document.getElementById("synthang").value);
+        var oralph = parseFloat(document.getElementById("oralph").value);
+        var ctrlph = parseFloat(document.getElementById("ctrlph").value);
+        var synthph = parseFloat(document.getElementById("synthph").value);
+        var ctrlinfo = parseFloat(document.getElementById("ctrlinfo").value);
+        var synthinfo = parseFloat(document.getElementById("synthinfo").value);
+        var oralop = parseFloat(document.getElementById("oralop").value);
+        var ctrlop = parseFloat(document.getElementById("ctrlop").value);
+        var synthop = parseFloat(document.getElementById("synthop").value);
+        var ctrlsport = parseFloat(document.getElementById("ctrlsport").value);
+        var synthsport = parseFloat(document.getElementById("synthsport").value);
+    
+        // Perform grade calculation
+        var var1 = ((tpmec + tpelec) / 2);
+        var var2 = ((ctrlmec + ctrlelec) / 2);
+        var var3 = ((synthmec + synthelec) / 2);
+        var moytech = ((var1 + var2) + (var3 * 2)) / 4;
+        var moyphy = ((tpphy + ctrlphy) + (synthphy * 2)) / 4;
+        var moymath = (ctrlmath + (synthmath * 2)) / 3;
+        var moyarabe = syntharabe
+        var moyfran = ((oralfran + ctrlfran) + (synthfran * 2)) / 4;
+        var moyang = ((oralang + ctrlang) + (synthang * 2)) / 4;
+        var moyphilo = (oralph+ctrlph+synthph)/3
+        var moyinfo = (ctrlinfo + synthinfo) / 2;
+        var moyop = ((oralop + ctrlop) + (synthop * 2)) / 4;
+        var moysport = (ctrlsport + (synthsport * 2)) / 3;
+        var tottech = (moytech * 4)
+        var totphy = (moyphy * 4)
+        var totmath = (moymath * 3)
+        var totarabe = (moyarabe * 1)
+        var totfran = (moyfran * 1)
+        var totang = (moyang * 1)
+        var totphilo = (moyphilo * 1)
+        var totinfo = (moyinfo * 1)
+        var totop = (moyop * 1)
+        var totsport = (moysport * 1)
+        // Calculate total grade
+        var totcoef = 18;
+        var tot = (tottech + totphy + totmath + totarabe + totfran + totang + totphilo + totinfo + totop + totsport) / totcoef;
+    
+        // Display result
+        document.getElementById("result").innerHTML = "Votre moyenne est : " + tot.toFixed(3);toFixed(2)
+        
+    
+    });
+    </script>
+</body>
+</html>

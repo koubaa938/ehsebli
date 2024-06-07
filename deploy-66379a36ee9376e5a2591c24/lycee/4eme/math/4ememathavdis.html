@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4ème Math</title>
+    <style>
+        html {
+            filter: invert(100%) hue-rotate(180deg);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px; /* Adjusted margin bottom */
+        }
+        h2 {
+            margin-top: 20px;
+            color: #555;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #777;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #17A057;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #213970;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+        .dispense-button-container span {
+            margin-right: 10px; /* Adjust spacing between text and button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>4ème Math</h1>
+        <form id="gradeForm">
+            <!-- Arabic -->
+            <h2>Arabe</h2>
+            <label for="syntharabe">Synthèse Arabe:</label>
+            <input type="number" id="syntharabe" step="0.01" min="0" max="20" required>
+            <!-- Math -->
+            <h2>Mathématiques</h2>
+            <label for="ctrlmath">Controle Mathématiques:</label>
+            <input type="number" id="ctrlmath" step="0.01" min="0" max="20" required>
+            <label for="synthmath">Synthèse Mathématiques:</label>
+            <input type="number" id="synthmath" step="0.01" min="0" max="20" required>
+            <!-- Physics -->
+            <h2>Physique</h2>
+            <label for="tpphy">TP Physique:</label>
+            <input type="number" id="tpphy" step="0.01" min="0" max="20" required>
+            <label for="ctrlphy">Controle Physique:</label>
+            <input type="number" id="ctrlphy" step="0.01" min="0" max="20" required>
+            <label for="synthphy">Synthèse Physique:</label>
+            <input type="number" id="synthphy" step="0.01" min="0" max="20" required>
+            <!-- French -->
+            <h2>Français</h2>
+            <label for="oralfran">Oral Français:</label>
+            <input type="number" id="oralfran" step="0.01" min="0" max="20" required>
+            <label for="ctrlfran">Controle Français:</label>
+            <input type="number" id="ctrlfran" step="0.01" min="0" max="20" required>
+            <label for="synthfran">Synthèse Français:</label>
+            <input type="number" id="synthfran" step="0.01" min="0" max="20" required>
+            <!-- English -->
+            <h2>Anglais</h2>
+            <label for="oralang">Oral Anglais:</label>
+            <input type="number" id="oralang" step="0.01" min="0" max="20" required>
+            <label for="ctrlang">Controle Anglais:</label>
+            <input type="number" id="ctrlang" step="0.01" min="0" max="20" required>
+            <label for="synthang">Synthèse Anglais:</label>
+            <input type="number" id="synthang" step="0.01" min="0" max="20" required>
+            <!-- Philosophy -->
+            <h2>Philosophie</h2>
+            <label for="oralph">Oral Philosophie:</label>
+            <input type="number" id="oralph" step="0.01" min="0" max="20" required>
+            <label for="ctrlph">Controle Philosophie:</label>
+            <input type="number" id="ctrlph" step="0.01" min="0" max="20" required>
+            <label for="synthph">Synthèse Philosophie:</label>
+            <input type="number" id="synthph" step="0.01" min="0" max="20" required>
+            <!-- Science -->
+            <h2>Science</h2>
+            <label for="ctrlsc">Controle Science:</label>
+            <input type="number" id="ctrlsc" step="0.01" min="0" max="20" required>
+            <label for="synthsc">Synthèse Science:</label>
+            <input type="number" id="synthsc" step="0.01" min="0" max="20" required>
+            <!-- Computer Science -->
+            <h2>Informatique</h2>
+            <label for="ctrlinfo">Controle Informatique:</label>
+            <input type="number" id="ctrlinfo" step="0.01" min="0" max="20" required>
+            <label for="synthinfo">Synthèse Informatique:</label>
+            <input type="number" id="synthinfo" step="0.01" min="0" max="20" required>
+            <!-- Option -->
+            <h2>Option</h2>
+            <label for="oralop">Oral Option:</label>
+            <input type="number" id="oralop" step="0.01" min="0" max="20" required>
+            <label for="ctrlop">Controle Option:</label>
+            <input type="number" id="ctrlop" step="0.01" min="0" max="20" required>
+            <label for="synthop">Synthèse Option:</label>
+            <input type="number" id="synthop" step="0.01" min="0" max="20" required>
+            <button type="submit">EHSEB</button>
+            <label for="dreictor">Powered By Youssef Koubaa</label>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        document.getElementById("gradeForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get values from form inputs
+            var ctrlsc = parseFloat(document.getElementById("ctrlsc").value);
+            var synthsc = parseFloat(document.getElementById("synthsc").value);
+            var tpphy = parseFloat(document.getElementById("tpphy").value);
+            var ctrlphy = parseFloat(document.getElementById("ctrlphy").value);
+            var synthphy = parseFloat(document.getElementById("synthphy").value);
+            var ctrlmath = parseFloat(document.getElementById("ctrlmath").value);
+            var synthmath = parseFloat(document.getElementById("synthmath").value);
+            var syntharabe = parseFloat(document.getElementById("syntharabe").value);
+            var oralfran = parseFloat(document.getElementById("oralfran").value);
+            var ctrlfran = parseFloat(document.getElementById("ctrlfran").value);
+            var synthfran = parseFloat(document.getElementById("synthfran").value);
+            var oralang = parseFloat(document.getElementById("oralang").value);
+            var ctrlang = parseFloat(document.getElementById("ctrlang").value);
+            var synthang = parseFloat(document.getElementById("synthang").value);
+            var oralph = parseFloat(document.getElementById("oralph").value);
+            var ctrlph = parseFloat(document.getElementById("ctrlph").value);
+            var synthph = parseFloat(document.getElementById("synthph").value);
+            var ctrlinfo = parseFloat(document.getElementById("ctrlinfo").value);
+            var synthinfo = parseFloat(document.getElementById("synthinfo").value);
+            var oralop = parseFloat(document.getElementById("oralop").value);
+            var ctrlop = parseFloat(document.getElementById("ctrlop").value);
+            var synthop = parseFloat(document.getElementById("synthop").value);
+
+            // Perform grade calculation
+            var moysc = (ctrlsc + (synthsc * 2)) / 3;
+            var moyphy = ((tpphy + ctrlphy) + (synthphy * 2)) / 4;
+            var moymath = (ctrlmath + (synthmath * 2)) / 3;
+            var moyarabe = syntharabe;
+            var moyfran = ((oralfran + ctrlfran) + (synthfran * 2)) / 4;
+            var moyang = ((oralang + ctrlang) + (synthang * 2)) / 4;
+            var moyphilo = ((oralph*0.5) + ctrlph + synthph*2) / 3.5;
+            var moyinfo = (ctrlinfo + (synthinfo*2)) / 3;
+            var moyop = ((oralop + ctrlop) + (synthop * 2)) / 4;
+
+            var totsc = moysc * 1;
+            var totphy = moyphy * 4;
+            var totmath = moymath * 4;
+            var totarabe = moyarabe * 1;
+            var totfran = moyfran * 1;
+            var totang = moyang * 1;
+            var totphilo = moyphilo * 1;
+            var totinfo = moyinfo * 1;
+            var totop = moyop * 1;
+            // Calculate total grade
+            var totcoef = 15;
+            var tot = (totsc + totphy + totmath + totarabe + totfran + totang + totphilo + totinfo + totop) / totcoef;
+
+            // Display result
+            document.getElementById("result").innerHTML = "Votre Moyenne est : " + tot.toFixed(3);
+        });
+    </script>
+</body>
+</html>

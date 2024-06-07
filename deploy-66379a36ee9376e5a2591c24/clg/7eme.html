@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHSEBLI - 7ème année</title>
+    <link rel="icon" type="image/x-icon" href="/design/favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(/design/backgroundfhd/college.png);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            scroll-behavior: smooth;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(200px);
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #ffffff;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #17A057;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #213970;
+        }
+
+        .neon-green {
+            color: #00ff00;
+        }
+
+        .neon-orange {
+            color: orange;
+        }
+
+        .neon-red {
+            color: red;
+        }
+
+        .sport-checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .sport-checkbox-container input {
+            margin-right: 10px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .checkbox-container input {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .checkbox-wrapper-4 * {
+            box-sizing: border-box;
+        }
+        .checkbox-wrapper-4 .cbx {
+            -webkit-user-select: none;
+            user-select: none;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+        .checkbox-wrapper-4 .cbx:not(:last-child) {
+            margin-right: 6px;
+        }
+        .checkbox-wrapper-4 .cbx:hover {
+            background: rgba(0,119,255,0.06);
+        }
+        .checkbox-wrapper-4 .cbx span {
+            float: left;
+            vertical-align: middle;
+            transform: translate3d(0, 0, 0);
+        }
+        .checkbox-wrapper-4 .cbx span:first-child {
+            position: relative;
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            transform: scale(1);
+            border: 1px solid #cccfdb;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 1px rgba(0,16,75,0.05);
+        }
+        .checkbox-wrapper-4 .cbx span:first-child svg {
+            position: absolute;
+            top: 3px;
+            left: 2px;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 16px;
+            stroke-dashoffset: 16px;
+            transition: all 0.3s ease;
+            transition-delay: 0.1s;
+            transform: translate3d(0, 0, 0);
+        }
+        .checkbox-wrapper-4 .cbx span:last-child {
+            padding-left: 8px;
+            line-height: 18px;
+        }
+        .checkbox-wrapper-4 .cbx:hover span:first-child {
+            border-color: #07f;
+        }
+        .checkbox-wrapper-4 .inp-cbx {
+            position: absolute;
+            visibility: hidden;
+        }
+        .checkbox-wrapper-4 .inp-cbx:checked + .cbx span:first-child {
+            background: #07f;
+            border-color: #07f;
+            animation: wave-4 0.4s ease;
+        }
+        .checkbox-wrapper-4 .inp-cbx:checked + .cbx span:first-child svg {
+            stroke-dashoffset: 0;
+        }
+        .checkbox-wrapper-4 .inline-svg {
+            position: absolute;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+        @media screen and (max-width: 640px) {
+            .checkbox-wrapper-4 .cbx {
+            width: 100%;
+            display: inline-block;
+            }
+        }
+        @-moz-keyframes wave-4 {
+            50% {
+            transform: scale(0.9);
+            }
+        }
+        @-webkit-keyframes wave-4 {
+            50% {
+            transform: scale(0.9);
+            }
+        }
+        @-o-keyframes wave-4 {
+            50% {
+            transform: scale(0.9);
+            }
+        }
+        @keyframes wave-4 {
+            50% {
+            transform: scale(0.9);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            input[type="number"] {
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px;
+            }
+        } 
+  .checkbox-wrapper-4 * {
+    box-sizing: border-box;
+  }
+  .checkbox-wrapper-4 .cbx {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    display: inline-block;
+  }
+  .checkbox-wrapper-4 .cbx:not(:last-child) {
+    margin-right: 6px;
+  }
+  .checkbox-wrapper-4 .cbx:hover {
+    background: rgba(0,119,255,0.06);
+  }
+  .checkbox-wrapper-4 .cbx span {
+    float: left;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+  }
+  .checkbox-wrapper-4 .cbx span:first-child {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    transform: scale(1);
+    border: 1px solid #cccfdb;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 1px rgba(0,16,75,0.05);
+  }
+  .checkbox-wrapper-4 .cbx span:first-child svg {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: 16px;
+    transition: all 0.3s ease;
+    transition-delay: 0.1s;
+    transform: translate3d(0, 0, 0);
+  }
+  .checkbox-wrapper-4 .cbx span:last-child {
+    padding-left: 8px;
+    line-height: 18px;
+  }
+  .checkbox-wrapper-4 .cbx:hover span:first-child {
+    border-color: #07f;
+  }
+  .checkbox-wrapper-4 .inp-cbx {
+    position: absolute;
+    visibility: hidden;
+  }
+  .checkbox-wrapper-4 .inp-cbx:checked + .cbx span:first-child {
+    background: #07f;
+    border-color: #07f;
+    animation: wave-4 0.4s ease;
+  }
+  .checkbox-wrapper-4 .inp-cbx:checked + .cbx span:first-child svg {
+    stroke-dashoffset: 0;
+  }
+  .checkbox-wrapper-4 .inline-svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+  @media screen and (max-width: 640px) {
+    .checkbox-wrapper-4 .cbx {
+      width: 100%;
+      display: inline-block;
+    }
+  }
+  @-moz-keyframes wave-4 {
+    50% {
+      transform: scale(0.9);
+    }
+  }
+  @-webkit-keyframes wave-4 {
+    50% {
+      transform: scale(0.9);
+    }
+  }
+  @-o-keyframes wave-4 {
+    50% {
+      transform: scale(0.9);
+    }
+  }
+  @keyframes wave-4 {
+    50% {
+      transform: scale(0.9);
+    }
+  }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            input[type="number"] {
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>7ème année</h1>
+        <form id="gradeForm">
+            <!-- Arabe -->
+            <h2>Arabe</h2>
+            <label for="oralarabe">Oral Arabe:</label>
+            <input type="number" id="oralarabe" step="0.01" min="0" max="20" required>
+            <label for="ctrlarbdr">Controle Etude de texte:</label>
+            <input type="number" id="ctrlarbdr" step="0.01" min="0" max="20" required>
+            <label for="ctrlarinch">Controle Production:</label>
+            <input type="number" id="ctrlarinch" step="0.01" min="0" max="20" required>
+            <label for="synthar">Synthèse Arabe:</label>
+            <input type="number" id="synthar" step="0.01" min="0" max="20" required>
+
+            <!-- Français -->
+            <h2>Français</h2>
+            <label for="oralfran">Oral Français:</label>
+            <input type="number" id="oralfran" step="0.01" min="0" max="20" required>
+            <label for="ctrlfran">Controle Français:</label>
+            <input type="number" id="ctrlfran" step="0.01" min="0" max="20" required>
+            <label for="synthfran">Synthèse Français:</label>
+            <input type="number" id="synthfran" step="0.01" min="0" max="20" required>
+
+            <!-- Anglais -->
+            <h2>Anglais</h2>
+            <label for="oralang">Oral Anglais:</label>
+            <input type="number" id="oralang" step="0.01" min="0" max="20" required>
+            <label for="ctrlang">Controle Anglais:</label>
+            <input type="number" id="ctrlang" step="0.01" min="0" max="20" required>
+            <label for="synthang">Synthèse Anglais:</label>
+            <input type="number" id="synthang" step="0.01" min="0" max="20" required>
+
+            <!-- Histoire -->
+            <h2>Histoire</h2>
+            <label for="oralhis">Oral Histoire:</label>
+            <input type="number" id="oralhis" step="0.01" min="0" max="20" required>
+            <label for="ctrlhis">Controle Histoire:</label>
+            <input type="number" id="ctrlhis" step="0.01" min="0" max="20" required>
+            <label for="synthhis">Synthèse Histoire:</label>
+            <input type="number" id="synthhis" step="0.01" min="0" max="20" required>
+
+            <!-- Géographie -->
+            <h2>Géographie</h2>
+            <label for="oralgeo">Oral Géographie:</label>
+            <input type="number" id="oralgeo" step="0.01" min="0" max="20" required>
+            <label for="ctrlgeo">Controle Géographie:</label>
+            <input type="number" id="ctrlgeo" step="0.01" min="0" max="20" required>
+            <label for="synthgeo">Synthèse Géographie:</label>
+            <input type="number" id="synthgeo" step="0.01" min="0" max="20" required>
+
+            <!-- Education Islamique -->
+            <h2>Education Islamique</h2>
+            <label for="oralis">Oral Education Islamique:</label>
+            <input type="number" id="oralis" step="0.01" min="0" max="20" required>
+            <label for="ctrlis">Controle Education Islamique:</label>
+            <input type="number" id="ctrlis" step="0.01" min="0" max="20" required>
+            <label for="synthis">Synthèse Education Islamique:</label>
+            <input type="number" id="synthis" step="0.01" min="0" max="20" required>
+
+            <!-- Education Civique -->
+            <h2>Education Civique</h2>
+            <label for="oralci">Oral Education Civique:</label>
+            <input type="number" id="oralci" step="0.01" min="0" max="20" required>
+            <label for="ctrlci">Controle Education Civique:</label>
+            <input type="number" id="ctrlci" step="0.01" min="0" max="20" required>
+            <label for="synthci">Synthèse Education Civique:</label>
+            <input type="number" id="synthci" step="0.01" min="0" max="20" required>
+
+            <!-- Math -->
+            <h2>Math</h2>
+            <label for="ctrlmath">Controle Math:</label>
+            <input type="number" id="ctrlmath" step="0.01" min="0" max="20" required>
+            <label for="ctrlmath2">Controle 2 Math:</label>
+            <input type="number" id="ctrlmath2" step="0.01" min="0" max="20" required>
+            <label for="synthmath">Synthèse Math:</label>
+            <input type="number" id="synthmath" step="0.01" min="0" max="20" required>
+
+            <!-- Physique -->
+            <h2>Physique</h2>
+            <label for="tpphy">TP Physique:</label>
+            <input type="number" id="tpphy" step="0.01" min="0" max="20" required>
+            <label for="ctrlphy">Controle Physique:</label>
+            <input type="number" id="ctrlphy" step="0.01" min="0" max="20" required>
+            <label for="synthphy">Synthèse Physique:</label>
+            <input type="number" id="synthphy" step="0.01" min="0" max="20" required>
+
+            <!-- Science de la vie et de la terre -->
+            <h2>Science de la vie et de la terre</h2>
+            <label for="tpsvt">TP SVT:</label>
+            <input type="number" id="tpsvt" step="0.01" min="0" max="20" required>
+            <label for="ctrlsvt">Controle SVT:</label>
+            <input type="number" id="ctrlsvt" step="0.01" min="0" max="20" required>
+            <label for="synthsvt">Synthèse SVT:</label>
+            <input type="number" id="synthsvt" step="0.01" min="0" max="20" required>
+
+            <!-- Technique -->
+            <h2>Technique</h2>
+            <label for="tptch">Note Projet:</label>
+            <input type="number" id="tptch" step="0.01" min="0" max="20" required>
+            <label for="ctrltch">Controle Technique:</label>
+            <input type="number" id="ctrltch" step="0.01" min="0" max="20" required>
+            <label for="synthtch">Synthèse Technique:</label>
+            <input type="number" id="synthtch" step="0.01" min="0" max="20" required>
+
+            <!-- Arts Plastiques -->
+            <h2>Arts Plastiques</h2>
+            <label for="ctrlarp">Controle Arts Plastiques:</label>
+            <input type="number" id="ctrlarp" step="0.01" min="0" max="20" required>
+            <label for="syntharp">Synthèse Arts Plastiques:</label>
+            <input type="number" id="syntharp" step="0.01" min="0" max="20" required>
+
+            <!-- Informatique -->
+            <h2>Informatique</h2>
+            <label for="ctrlinf">Controle Informatique:</label>
+            <input type="number" id="ctrlinf" step="0.01" min="0" max="20" required>
+            <label for="synthinf">Synthèse Informatique:</label>
+            <input type="number" id="synthinf" step="0.01" min="0" max="20" required>
+
+            <!-- Musique -->
+            <h2>Musique</h2>
+            <label for="ctrlmus">Controle Musique:</label>
+            <input type="number" id="ctrlmus" step="0.01" min="0" max="20" required>
+            <label for="synthmus">Synthèse Musique:</label>
+            <input type="number" id="synthmus" step="0.01" min="0" max="20" required>
+
+            <!-- Sport -->
+            <h2>Sport</h2>
+            <label for="ctrlsport">Controle Sport:</label>
+            <input type="number" id="ctrlsport" step="0.01" min="0" max="20" required>
+            <label for="synthsport">Synthèse Sport:</label>
+            <input type="number" id="synthsport" step="0.01" min="0" max="20" required>
+            <div class="checkbox-wrapper-4">
+                <input class="inp-cbx" id="sportCheckbox" type="checkbox"/>
+                <label class="cbx" for="sportCheckbox"><span>
+                <svg width="12px" height="10px">
+                    <use xlink:href="#check-4"></use>
+                </svg></span><span>Dispensé(e)</span></label>
+                <svg class="inline-svg">
+                    <symbol id="check-4" viewbox="0 0 12 10">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                    </symbol>
+                </svg>
+            </div>
+
+            <!-- Éducation théâtrale -->
+            <h2>Éducation théâtrale</h2>
+            <label for="oralth">Oral Éducation théâtrale:</label>
+            <input type="number" id="oralth" step="0.01" min="0" max="20" required>
+            <label for="synthth">Synthèse Éducation théâtrale:</label>
+            <input type="number" id="synthth" step="0.01" min="0" max="20" required>
+            <div class="checkbox-wrapper-4">
+                <input class="inp-cbx" id="edthCheckbox" type="checkbox"/>
+                <label class="cbx" for="edthCheckbox"><span>
+                <svg width="12px" height="10px">
+                    <use xlink:href="#check-4"></use>
+                </svg></span><span>Dispensé(e)</span></label>
+                <svg class="inline-svg">
+                    <symbol id="check-4" viewbox="0 0 12 10">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                    </symbol>
+                </svg>
+            </div>
+            <button type="button" onclick="calculateGrade()">EHSEB</button>
+            <div id="result"></div>
+            <label for="director">Powered By Youssef Koubaa</label>
+        </form>
+    </div>
+    <script>
+        function calculateGrade() {
+            // Input verification
+    var inputs = document.querySelectorAll('input[type="number"]');
+    for (var i = 0; i < inputs.length; i++) {
+        var value = parseFloat(inputs[i].value);
+        if (value < 0 || value > 20) {
+            alert("Les notes doivent être comprises entre 0 et 20");
+            return;
+        }
+    }
+
+    // Retrieve input values for all subjects
+    var oralarabe = parseFloat(document.getElementById("oralarabe").value);
+    var ctrlarbdr = parseFloat(document.getElementById("ctrlarbdr").value);
+    var ctrlarinch = parseFloat(document.getElementById("ctrlarinch").value);
+    var synthar = parseFloat(document.getElementById("synthar").value);
+    var oralfran = parseFloat(document.getElementById("oralfran").value);
+    var ctrlfran = parseFloat(document.getElementById("ctrlfran").value);
+    var synthfran = parseFloat(document.getElementById("synthfran").value);
+    var oralang = parseFloat(document.getElementById("oralang").value);
+    var ctrlang = parseFloat(document.getElementById("ctrlang").value);
+    var synthang = parseFloat(document.getElementById("synthang").value);
+    var oralhis = parseFloat(document.getElementById("oralhis").value);
+    var ctrlhis = parseFloat(document.getElementById("ctrlhis").value);
+    var synthhis = parseFloat(document.getElementById("synthhis").value);
+    var oralgeo = parseFloat(document.getElementById("oralgeo").value);
+    var ctrlgeo = parseFloat(document.getElementById("ctrlgeo").value);
+    var synthgeo = parseFloat(document.getElementById("synthgeo").value);
+    var oralis = parseFloat(document.getElementById("oralis").value);
+    var ctrlis = parseFloat(document.getElementById("ctrlis").value);
+    var synthis = parseFloat(document.getElementById("synthis").value);
+    var oralci = parseFloat(document.getElementById("oralci").value);
+    var ctrlci = parseFloat(document.getElementById("ctrlci").value);
+    var synthci = parseFloat(document.getElementById("synthci").value);
+    var ctrlmath = parseFloat(document.getElementById("ctrlmath").value);
+    var ctrlmath2 = parseFloat(document.getElementById("ctrlmath2").value);
+    var synthmath = parseFloat(document.getElementById("synthmath").value);
+    var tpphy = parseFloat(document.getElementById("tpphy").value);
+    var ctrlphy = parseFloat(document.getElementById("ctrlphy").value);
+    var synthphy = parseFloat(document.getElementById("synthphy").value);
+    var tpsvt = parseFloat(document.getElementById("tpsvt").value);
+    var ctrlsvt = parseFloat(document.getElementById("ctrlsvt").value);
+    var synthsvt = parseFloat(document.getElementById("synthsvt").value);
+    var tptch = parseFloat(document.getElementById("tptch").value);
+    var ctrltch = parseFloat(document.getElementById("ctrltch").value);
+    var synthtch = parseFloat(document.getElementById("synthtch").value);
+    var ctrlarp = parseFloat(document.getElementById("ctrlarp").value);
+    var syntharp = parseFloat(document.getElementById("syntharp").value);
+    var ctrlinf = parseFloat(document.getElementById("ctrlinf").value);
+    var synthinf = parseFloat(document.getElementById("synthinf").value);
+    var ctrlmus = parseFloat(document.getElementById("ctrlmus").value);
+    var synthmus = parseFloat(document.getElementById("synthmus").value);
+    var ctrlsport = parseFloat(document.getElementById("ctrlsport").value);
+    var synthsport = parseFloat(document.getElementById("synthsport").value);
+    var synthth = parseFloat(document.getElementById("synthth").value);
+    var oralth = parseFloat(document.getElementById("oralth").value);
+
+    // Perform calculations for each subject
+    var var1 = ((ctrlarbdr + ctrlarinch) + (synthar * 2)) / 4;
+    var moyarabe = ((var1 * 3) + (oralarabe * 1)) / 4;
+    var totarabe = moyarabe * 4;
+
+    var moyfran = ((oralfran + ctrlfran) + (synthfran * 2)) / 4;
+    var totfran = moyfran * 4;
+
+    var moyang = ((oralang + ctrlang) + (synthang * 2)) / 4;
+    var totang = moyang * 1.5;
+
+    var moyhis = ((oralhis + ctrlhis) + (synthhis * 2)) / 4;
+    var tothis = moyhis * 1;
+
+    var moygeo = ((oralgeo + ctrlgeo) + (synthgeo * 2)) / 4;
+    var totgeo = moygeo * 1;
+
+    var moyis = ((oralis + ctrlis) + (synthis * 2)) / 4;
+    var totis = moyis * 1;
+
+    var moyci = ((oralci + ctrlci) + (synthci * 2)) / 4;
+    var totci = moyci * 1;
+
+    var moymath = ((ctrlmath + ctrlmath2) + (synthmath * 2)) / 4;
+    var totmath = moymath * 3;
+
+    var moyphy = ((tpphy + ctrlphy) + (synthphy * 2)) / 4;
+    var totphy = moyphy * 1;
+
+    var moysvt = ((tpsvt + ctrlsvt) + (synthsvt * 2)) / 4;
+    var totsvt = moysvt * 1;
+
+    var moytch = ((tptch + ctrltch) + (synthtch * 2)) / 4;
+    var tottch = moytch * 1;
+
+    var moyarp = (ctrlarp + syntharp) / 2;
+    var totarp = moyarp * 1;
+
+    var moysport = (ctrlsport + (synthsport * 2)) / 3;
+    var totsport = moysport * 1;
+
+    var moyinf = (ctrlinf + synthinf) / 2;
+    var totinf = moyinf * 1;
+
+    var moymus = (synthmus + (ctrlmus * 2)) / 3;
+    var totmus = moymus * 1;
+
+    var moyth = (oralth + (synthth * 2)) / 3;
+    var totth = moyth * 1;
+
+   // Retrieve checkbox values
+var sportCheckbox = document.getElementById("sportCheckbox").checked;
+var edthCheckbox = document.getElementById("edthCheckbox").checked; // Fixed the typo here
+var totcoef = 24.5;
+var tot = 0;
+
+if (sportCheckbox && edthCheckbox) {
+    totcoef = 22.5;
+    tot = (totarabe + totfran + totang + tothis + totgeo + totis + totci + totmath + totphy + totsvt + tottch + totarp + totinf + totmus) / totcoef;
+} else if (sportCheckbox && !edthCheckbox) {
+    totcoef = 23.5;
+    tot = (totarabe + totfran + totang + tothis + totgeo + totis + totci + totmath + totphy + totsvt + tottch + totarp + totinf + totmus + totth) / totcoef;
+} else if (!sportCheckbox && edthCheckbox) {
+    totcoef = 23.5;
+    tot = (totarabe + totfran + totang + tothis + totgeo + totis + totci + totmath + totphy + totsvt + tottch + totarp + totinf + totmus + totsport) / totcoef;
+} else {
+    totcoef = 24.5;
+    tot = (totarabe + totfran + totang + tothis + totgeo + totis + totci + totmath + totphy + totsvt + tottch + totarp + totinf + totmus + totsport + totth) / totcoef;
+}
+
+
+
+    // Display the result
+    document.getElementById("result").innerText = "Moyenne : " + tot.toFixed(2);
+}
+    </script>
+</body>
+</html>

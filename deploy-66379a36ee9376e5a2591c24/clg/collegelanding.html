@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHSEBLI - Collège</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #008080; /* Dark mode background color */
+            color: #fff; /* Text color white */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px; /* Shrink title size */
+            margin-bottom: 20px;
+        }
+
+        .options {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .option {
+            display: block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #006666; /* Teal green background color */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 200px;
+            text-align: center; /* Center-align the text */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow to options */
+        }
+
+        .option:hover {
+            background-color: #005555; /* Slightly darker teal green */
+        }
+
+        .credits {
+            font-size: 10px;
+            color: #fff; /* Credits text color white */
+            margin-top: 50px; /* Add margin-top to move the credits down */
+        }
+
+        .credits img {
+            width: 40px; /* Adjust size as needed */
+            vertical-align: middle;
+            margin-left: 5px;
+            margin-top: 10px;
+        }
+
+        .credits-text {
+            display: inline-block; /* Ensure text and image are on the same line */
+            margin-right: 5px; /* Add space between text and image */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Choissisez votre niveau</h1>
+    <div class="options">
+        <a href="/clg/7eme.html" class="option">7ème année</a>
+        <a href="/clg/8eme.html" class="option">8ème année</a>
+        <a href="/clg/9eme.html" class="option">9ème année</a>
+    </div>
+</body>
+</html>
