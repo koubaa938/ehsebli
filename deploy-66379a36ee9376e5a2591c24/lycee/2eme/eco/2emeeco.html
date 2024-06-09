@@ -3,51 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2ème économie</title>
+    <title>EHSEBLI | 2ème économie</title>
     <style>
-        html {
-            filter: invert(100%) hue-rotate(180deg);
-        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            background-image: url(/deploy-66379a36ee9376e5a2591c24/design/backgroundfhd/éco.png);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            scroll-behavior: smooth;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 800px;
-            margin: 20px auto;
+            width: 90%;
+            margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(200px);
         }
 
         h1 {
             text-align: center;
-            color: #333;
-        }
-
-        h2 {
-            margin-top: 20px;
-            color: #555;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
             margin-top: 10px;
-            color: #777;
+            color: #ffffff;
         }
 
         input[type="number"] {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             margin-top: 5px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #999;
             border-radius: 5px;
             box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
         }
 
         button {
@@ -68,22 +76,24 @@
 
         #result {
             margin-top: 20px;
-            text-align: center;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .individual-results {
-            margin-top: 20px;
             padding: 10px;
-            background-color: #f8f8f8;
             border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            text-align: center;
         }
 
-        .individual-results h3 {
-            margin-top: 10px;
-            color: #555;
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            input[type="number"] {
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px;
+            }
         }
     </style>
 </head>
@@ -186,21 +196,30 @@
         <label for="synthinf">Synthèse Informatique:</label>
         <input type="number" id="synthinf" step="0.01" min="0" max="20" required>
 
-        <!-- Sport -->
-        <h2>Sport</h2>
-        <label for="ctrlsport">Controle Sport:</label>
-        <input type="number" id="ctrlsport" step="0.01" min="0" max="20" required>
-        <label for="synthsport">Synthèse Sport:</label>
-        <input type="number" id="synthsport" step="0.01" min="0" max="20" required>
+            <!-- Sport -->
+            <h2>Sport</h2>
+            <label for="ctrlsport">Controle Sport:</label>
+            <input type="number" id="ctrlsport" step="0.01" min="0" max="20" required>
+            <label for="synthsport">Synthèse Sport:</label>
+            <input type="number" id="synthsport" step="0.01" min="0" max="20" required>
+            <label><input type="checkbox" id="dispsport"> Dispensé(e)</label>
 
-        <!-- Buttons and result display -->
-        <button name="calc" type="button" onclick="calculateGrade()">EHSEB</button>
-        <label for="director">Powered By Youssef Koubaa</label>
-    </form>
-    <div id="result"></div>
-</div>
-<script>
-    function calculateGrade() {
+            <!-- Buttons and result display -->
+            <button name="calc" type="button" onclick="calculateGrade()">EHSEB</button>
+            <label for="director">Powered By Youssef Koubaa</label>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>function calculateGrade() {
+        // Input verification
+    var inputs = document.querySelectorAll('input[type="number"]');
+    for (var i = 0; i < inputs.length; i++) {
+        var value = parseFloat(inputs[i].value);
+        if (value < 0 || value > 20) {
+            alert("Les notes doivent être comprises entre 0 et 20");
+            return;
+        }
+    }
         // Retrieve input values for all subjects
         var oralarabe = parseFloat(document.getElementById("oralarabe").value);
         var ctrlarabe = parseFloat(document.getElementById("ctrlarabe").value);
@@ -274,13 +293,19 @@
         var moysport = (ctrlsport + (synthsport * 2)) / 3;
         var totsport = moysport * 1;
 
-        // Calculate total average
-        var totcoef = 22;
-        var tot = (totarabe + totfran + totang + tothis + totgeo + totis + totci + totmath + toteco + totges + totinf + totsport) / totcoef;
+        var sportCheckbox = document.getElementById("dispsport").checked;
+        var totcoef = 24.5;
+        var tot = 0;
 
+        if (sportCheckbox) {
+            totcoef = 21;
+            tot = (totarabe + totfran + totang + tothis + totgeo + totis + totci + totmath + toteco + totges + totinf) / totcoef;
+        } else {
+            totcoef = 22;
+            tot = (totarabe + totfran + totang + tothis + totgeo + totis + totci + totmath + toteco + totges + totinf + totsport) / totcoef;
+        }
         // Display the total average
-        document.getElementById("result").innerHTML = "Votre moyenne est : " + tot.toFixed(3);
-    }
-</script>
+        document.getElementById("result").innerHTML = "Moyenne : " + tot.toFixed(3);
+    }</script>
 </body>
 </html>
